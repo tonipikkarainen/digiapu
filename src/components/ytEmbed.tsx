@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  id: String;
+  id: string;
 };
 
 const YtEmbed = (props: Props) => {
