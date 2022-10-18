@@ -4,9 +4,7 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { trpc } from "../../utils/trpc";
 
-type Props = {};
-
-const SubCategories = (props: Props) => {
+const SubCategories = () => {
   const router = useRouter();
   const id = Array.isArray(router.query.id)
     ? router.query.id[0]
@@ -26,7 +24,7 @@ const SubCategories = (props: Props) => {
         <div className="text-2xl">
           Alikategoriat:
           {data?.map((subcat) => (
-            <p>{subcat.name}</p>
+            <p key={subcat.id}>{subcat.name}</p>
           ))}
         </div>
       </div>
