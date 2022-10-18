@@ -1,10 +1,12 @@
 // src/server/trpc/router/_app.ts
 import { router } from "../trpc";
-import { exampleRouter } from "./example";
+import { videoCategoryRouter } from "./videoCategory";
 import { authRouter } from "./auth";
+import { subCategoryRouter } from "./subCategory";
 
 export const appRouter = router({
-  example: exampleRouter,
+  videoCategory: videoCategoryRouter,
+  subCategory: subCategoryRouter,
   auth: authRouter,
 });
 

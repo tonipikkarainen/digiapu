@@ -14,10 +14,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model VideoCategory {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  name          String
+  subCategories SubCategory[]
+}
+
+model SubCategory {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+  categoryId String 
+  name       String
+  videos     Video[]
+  category   VideoCategory    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+}
+
+model Video {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  subCategoryId String 
+  name          String
+  userId        String
+  subCategory   SubCategory   @relation(fields: [subCategoryId], references: [id], onDelete: Cascade)
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // Necessary for Next auth
@@ -55,6 +75,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  videos        Video[]
 }
 
 model VerificationToken {
