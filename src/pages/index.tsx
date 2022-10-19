@@ -16,7 +16,9 @@ const Home: NextPage = () => {
       <div className="flex h-full flex-col px-8">
         <Header />
         <div className="container mx-auto flex flex-1 flex-col items-center justify-center p-4">
-          <div className="main-color text-7xl">Digiapua lukiolaiselle.</div>
+          <div className="main-color text-3xl md:text-5xl lg:text-7xl">
+            Digiapua lukiolaiselle.
+          </div>
         </div>
         <Footer />
       </div>
