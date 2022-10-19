@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .main-color {
+    @apply text-fuchsia-400;
+  }
+  .main-color-hover {
+    @apply text-fuchsia-600;
+  }
+  .element-bg {
+    @apply bg-zinc-900;
+  }
+}
+
 html,
 body {
   padding: 0;
@@ -16,4 +28,5 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: black;
 }

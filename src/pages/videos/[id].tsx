@@ -20,18 +20,19 @@ const Videos = () => {
 
   // Muuta tämä - tuottaa tyhjän sivun hetketsi
   return (
-    <div className="flex h-full flex-col px-4">
+    <div className="flex h-full flex-col px-8">
       <Header />
 
-      <div className="container mx-auto flex flex-1 flex-col items-center justify-center bg-slate-100 p-4">
-        <div className="text-2xl">
-          Videot:
-          {isLoading ? (
-            <LoadingIcons.Circles className="max-h-9" />
-          ) : (
-            data?.map((video) => <YtEmbed key={video.id} id={video.url} />)
-          )}
-        </div>
+      <div className="main-color mx-auto grid flex-1 grid-cols-1 flex-col items-center justify-center gap-x-8 gap-y-2  overflow-y-scroll text-2xl md:grid-cols-2 lg:grid-cols-3">
+        {isLoading ? (
+          <LoadingIcons.Circles className="max-h-9" />
+        ) : (
+          data?.map((video) => (
+            <div key={video.id} className="flex items-center justify-center  ">
+              <YtEmbed key={video.id} id={video.url} />
+            </div>
+          ))
+        )}
       </div>
 
       <Footer />
