@@ -1,15 +1,15 @@
-import { VideoCategory } from "@prisma/client";
+import { SubCategory, VideoCategory } from "@prisma/client";
 import React, { useState } from "react";
 import DeleteForm from "./deleteForm";
 import DeleteButton from "./deleteIcon";
 import Modal from "./modal";
 
 type Props = {
-  videocat: VideoCategory;
+  videocat: SubCategory;
   deleteCat: (id: string) => void;
 };
 
-const VideoCatElement = (props: Props) => {
+const SubCatElement = (props: Props) => {
   const { videocat, deleteCat } = props;
   const [showDelModal, setShowDelModal] = useState(false);
   return (
@@ -37,4 +37,4 @@ const VideoCatElement = (props: Props) => {
   );
 };
 
-export default VideoCatElement;
+export default SubCatElement;

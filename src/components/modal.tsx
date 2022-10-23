@@ -12,7 +12,7 @@ export default function Modal(props: Props) {
   const { showModal, setShowModal, content, openingElement, header } = props;
   return (
     <>
-      <div className="flex items-center justify-center">{openingElement}</div>
+      <div className="flex">{openingElement}</div>
       {showModal && (
         <>
           <div className="fixed inset-0 z-10 overflow-y-auto">

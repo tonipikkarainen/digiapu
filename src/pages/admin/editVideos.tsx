@@ -8,18 +8,20 @@ import { trpc } from "../../utils/trpc";
 import CreateCatForm from "../../components/createCatForm";
 import VideoCatElement from "../../components/videoCatElement";
 import AdminHeader from "../../components/adminHeader";
+import CreateSubCatForm from "../../components/createSubCatForm";
+import CreateVideoForm from "../../components/createVideoForm";
 
-const EditCategories = () => {
+const EditSubCategories = () => {
   const { data: sessionData } = useSession();
-  const { data, isLoading } = trpc.videoCategory.getAll.useQuery();
+  const { data, isLoading } = trpc.video.getAll.useQuery();
   const [showModal, setShowModal] = useState(false);
 
   const utils = trpc.useContext();
 
-  const delMutation = trpc.videoCategory.deleteCategory.useMutation({
+  const delMutation = trpc.video.deleteVideo.useMutation({
     onSuccess({}) {
       console.log("Deleted");
-      utils.videoCategory.getAll.invalidate();
+      utils.video.getAll.invalidate();
     },
     onError({ message }) {
       console.log(message);
@@ -52,7 +54,7 @@ const EditCategories = () => {
             )}
             <Modal
               content={
-                <CreateCatForm
+                <CreateVideoForm
                   setShowModal={setShowModal}
                   value=""
                   header=",ml"
@@ -60,11 +62,11 @@ const EditCategories = () => {
               }
               showModal={showModal}
               setShowModal={setShowModal}
-              header={"Kategoriat"}
+              header={"videot"}
               openingElement={
                 <ModalOpenButton
                   setShowModal={setShowModal}
-                  buttonText={"Luo kategoria"}
+                  buttonText={"Luo video"}
                 />
               }
             />
@@ -84,4 +86,4 @@ const EditCategories = () => {
   );
 };
 
-export default EditCategories;
+export default EditSubCategories;
