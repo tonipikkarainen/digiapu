@@ -19,9 +19,14 @@ export const publicProcedure = t.procedure;
 /**
  * Reusable middleware to ensure
  * users are logged in
+ * tarkastetaan myös, että vain Toni voi tehdä näitä
  */
 const isAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.session || !ctx.session.user) {
+  if (
+    !ctx.session ||
+    !ctx.session.user ||
+    !(ctx.session.user.email === "toni.t.pikkarainen@gmail.com")
+  ) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
   return next({

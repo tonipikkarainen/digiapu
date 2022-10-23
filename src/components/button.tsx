@@ -8,7 +8,7 @@ type Props = {
 const ModalOpenButton = (props: Props) => {
   return (
     <button
-      className="rounded-md bg-purple-600 px-6 py-3 text-purple-100"
+      className="rounded-md bg-pink-500 px-6 py-3 text-purple-100"
       type="button"
       onClick={() => props.setShowModal(true)}
     >
