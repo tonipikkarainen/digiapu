@@ -28,8 +28,12 @@ const Videos = () => {
           <LoadingIcons.Circles className="max-h-9" />
         ) : (
           data?.map((video) => (
-            <div key={video.id} className="flex items-center justify-center  ">
+            <div
+              key={video.id}
+              className="flex flex-col items-center justify-center  "
+            >
               <YtEmbed key={video.id} id={video.url} />
+              <p className="text-sm">{video.name}</p>
             </div>
           ))
         )}

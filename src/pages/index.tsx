@@ -19,6 +19,9 @@ const Home: NextPage = () => {
           <div className="main-color text-3xl md:text-5xl lg:text-7xl">
             Digiapua lukiolaiselle.
           </div>
+          <div className="main-color md:text-md text-sm lg:text-lg">
+            (ja miksei muillekin)
+          </div>
         </div>
         <Footer />
       </div>
