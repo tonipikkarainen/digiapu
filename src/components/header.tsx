@@ -36,7 +36,7 @@ const Header = () => {
       </div>
       <div className="main-color flex flex-1  justify-end  p-4">
         <div className="rounded-3xl bg-slate-100  p-3">
-          <Link href="/">Logo</Link>
+          <Link href="/">Koti</Link>
         </div>
       </div>
     </div>
